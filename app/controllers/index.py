@@ -4,7 +4,7 @@ routes = Blueprint('index', __name__)
 
 
 @routes.route('/')
-def show():
+def index():
     try:
         return render_template("index.html")
     except TemplateNotFound:

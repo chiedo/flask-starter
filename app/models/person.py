@@ -1,10 +1,10 @@
-"""The model for controller 1"""
+"""The model for a person"""
 from app import db
 from app.models.base import Base
 
 
-class Controller1(Base):
-    __tablename__ = 'controller_1'
+class Person(Base):
+    __tablename__ = 'people'
     name = db.Column(db.String(128), nullable=False)
     email = db.Column(db.SmallInteger, nullable=True)
     age = db.Column(db.String(128), nullable=False)

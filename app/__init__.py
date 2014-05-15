@@ -16,10 +16,10 @@ db = SQLAlchemy(webapp)
 
 # Import Contollers
 import app.controllers.index as index
-import app.controllers.api.controller_1 as api_controller_1
+import app.controllers.api.person as api_person
 
-# Uncomment the following to create the database. Can delete when done
-# db.create_all()
+# Creates all tables not created
+db.create_all()
 
 
 # Sample HTTP error handling
@@ -31,6 +31,5 @@ def not_found(error):
 # run db.create_all() in the interactive python shell.
 
 # Register blueprints
-webapp.register_blueprint(index.routes, url_prefix='')
-webapp.register_blueprint(api_controller_1.routes,
-                          url_prefix='/api/controller_1/')
+webapp.register_blueprint(index.routes)
+webapp.register_blueprint(api_person.routes, url_prefix='/api')
