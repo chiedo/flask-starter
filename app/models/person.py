@@ -10,6 +10,14 @@ class Person(Base):
     email = db.Column(db.SmallInteger, nullable=True)
     age = db.Column(db.String(128), nullable=False)
 
+    def __init__(self, name, email, age):
+        self.name  = name
+        self.email = email
+        self.age   = age
+
+    def __repr__(self):
+        return '<Name - %r>' % (self.name)
+
     @staticmethod
     def json(data):
         """Converts a result from sql alchemy into json"""
@@ -23,11 +31,3 @@ class Person(Base):
                 'age': i.age
             })
         return json.dumps(output)
-
-    def __init__(self, name, email, age):
-        self.name  = name
-        self.email = email
-        self.age   = age
-
-    def __repr__(self):
-        return '<Name - %r>' % (self.name)
