@@ -1,6 +1,7 @@
 """The model for a person"""
 from app import db
 from app.models.base import Base
+import json
 
 
 class Person(Base):
@@ -8,6 +9,20 @@ class Person(Base):
     name = db.Column(db.String(128), nullable=False)
     email = db.Column(db.SmallInteger, nullable=True)
     age = db.Column(db.String(128), nullable=False)
+
+    @staticmethod
+    def json(data):
+        """Converts a result from sql alchemy into json"""
+        output = list()
+        if(type(data) is not list):
+            data = [data]
+        for i in data:
+            output.append({
+                'name': i.name,
+                'email': i.email,
+                'age': i.age
+            })
+        return json.dumps(output)
 
     def __init__(self, name, email, age):
         self.name  = name
