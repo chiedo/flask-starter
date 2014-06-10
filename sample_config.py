@@ -25,3 +25,6 @@ CSRF_SESSION_KEY = "secret"
 
 # Secret key for signing cookies
 SECRET_KEY = "secret"
+
+# Leave as a slash if served locally
+STATIC_URL = "/"

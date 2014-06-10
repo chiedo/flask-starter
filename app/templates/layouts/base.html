@@ -1,8 +1,9 @@
+{% set STATIC_URL = config['STATIC_URL'] %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     {% block head %}
-    <link rel="stylesheet" href="/static/css/style.css" />
+      <link rel="stylesheet" href="{{ STATIC_URL }}static/css/style.css" />
     <title>{% block title %}{% endblock %} - My Webpage</title>
     {% endblock %}
   </head>
