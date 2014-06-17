@@ -16,7 +16,7 @@ db = SQLAlchemy(app)
 
 # Import Contollers
 import webapp.controllers.index as index
-import webapp.controllers.api.person as api_person
+import webapp.controllers.person as person
 
 # Creates all tables not created
 db.create_all()
@@ -32,4 +32,4 @@ def not_found(error):
 
 # Register blueprints
 app.register_blueprint(index.routes)
-app.register_blueprint(api_person.routes, url_prefix='/api')
+app.register_blueprint(person.routes, url_prefix='/person')

@@ -5,7 +5,7 @@ routes = Blueprint('person', __name__)
 # they make sense
 
 
-@routes.route('/person/', methods=['GET', 'POST'])
+@routes.route('/', methods=['GET', 'POST'])
 def people():
     if request.method == 'GET':
         # outputs json needs to be in try catch eventually
@@ -15,7 +15,7 @@ def people():
         return 'post'
 
 
-@routes.route('/person/<id>/', methods=['GET', 'DELETE', 'PUT'])
+@routes.route('/<id>/', methods=['GET', 'DELETE', 'PUT'])
 def person(id):
     if request.method == 'GET':
         # or could use .all()
