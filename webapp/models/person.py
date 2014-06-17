@@ -1,6 +1,6 @@
 """The model for a person"""
-from app import db
-from app.models.base import Base
+from webapp import db
+from webapp.models.base import Base
 import json
 
 

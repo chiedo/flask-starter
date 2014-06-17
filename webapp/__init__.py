@@ -5,25 +5,25 @@ from flask import Flask, render_template
 from flask.ext.sqlalchemy import SQLAlchemy
 
 # Define the WSGI application object
-webapp = Flask(__name__)
+app = Flask(__name__)
 
 # Configurations
-webapp.config.from_object('config.BaseConfiguration')
+app.config.from_object('config.BaseConfiguration')
 
 # Define the database object which is imported
 # by modules and controllers
-db = SQLAlchemy(webapp)
+db = SQLAlchemy(app)
 
 # Import Contollers
-import app.controllers.index as index
-import app.controllers.api.person as api_person
+import webapp.controllers.index as index
+import webapp.controllers.api.person as api_person
 
 # Creates all tables not created
 db.create_all()
 
 
 # Sample HTTP error handling
-@webapp.errorhandler(404)
+@app.errorhandler(404)
 def not_found(error):
     return render_template('404.html'), 404
 
@@ -31,5 +31,5 @@ def not_found(error):
 # run db.create_all() in the interactive python shell.
 
 # Register blueprints
-webapp.register_blueprint(index.routes)
-webapp.register_blueprint(api_person.routes, url_prefix='/api')
+app.register_blueprint(index.routes)
+app.register_blueprint(api_person.routes, url_prefix='/api')
