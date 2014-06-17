@@ -1,6 +1,6 @@
-from webapp.tests import BaseTestCase
-from person.models import Person
-from app import db
+from webapp.tests.test_base import BaseTestCase
+from webapp.models.person import Person
+from webapp import db
 
 
 class PersonTests(BaseTestCase):
