@@ -1,30 +1,36 @@
-# Statement for enabling the development environment
-DEBUG = True
-
 # Define the application directory
 import os
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
-# Define the database - we are working with
-# SQLite for this example
-SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'app.db')
-DATABASE_CONNECT_OPTIONS = {}
 
-# Application threads. A common general assumption is
-# using 2 per available processor cores - to handle
-# incoming requests using one and performing background
-# operations using the other.
-THREADS_PER_PAGE = 2
+class BaseConfiguration(object):
+    # Define the database - we are working with
+    # SQLite for this example
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'app.db')
+    DATABASE_CONNECT_OPTIONS = {}
 
-# Enable protection agains *Cross-site Request Forgery (CSRF)*
-CSRF_ENABLED = True
+    # Application threads. A common general assumption is
+    # using 2 per available processor cores - to handle
+    # incoming requests using one and performing background
+    # operations using the other.
+    THREADS_PER_PAGE = 2
 
-# Use a secure, unique and absolutely secret key for
-# signing the data.
-CSRF_SESSION_KEY = "secret"
+    # Enable protection agains *Cross-site Request Forgery (CSRF)*
+    CSRF_ENABLED = True
 
-# Secret key for signing cookies
-SECRET_KEY = "secret"
+    # Use a secure, unique and absolutely secret key for
+    # signing the data.
+    CSRF_SESSION_KEY = "secret"
 
-# Leave as a slash if served locally
-STATIC_URL = "/"
+    # Secret key for signing cookies
+    SECRET_KEY = "secret"
+
+    # Leave as a slash if served locally
+    STATIC_URL = "/"
+
+
+class TestConfiguration(BaseConfiguration):
+    TESTING = True
+    WTF_CSRF_ENABLED = False
+
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'  # + os.path.join(BASE_DIR, 'test.db')
