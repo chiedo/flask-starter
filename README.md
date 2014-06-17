@@ -1,6 +1,3 @@
-First set up your virtualenv
-
-Run pip install -r requirements.txt to get all packages.
-
-Be sure to add the following to venv/bin/activate so you can run tests from the home directory of the app:
-export PYTHONPATH="PATHTOYOURAPP:$PYTHONPATH"
+1. First set up your virtualenv
+2. Run pip install -r requirements.txt to get all packages.
+3. To run tests, navigate to the tests directory and run: python -m unittest discover
