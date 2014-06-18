@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
    nose: {
      options: {
-      //verbosity: 2, 
+      verbosity: 2, 
       rednose: true
      },
      src: ['./'] 
