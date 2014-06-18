@@ -4,12 +4,15 @@
   "description": "1. First set up your virtualenv 2. Run pip install -r requirements.txt to get all packages. 3. To run tests, execute: nose --rednose -- see http://www.realpython.com/blog/python/python-web-applications-with-flask-part-iii/#.U6BIto1dU5E for more info on the tests.",
   "main": "index.js",
   "dependencies": {
+  },
+  "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-cli": "~0.1.13",
     "grunt-contrib-watch": "~0.6.1",
-    "grunt-nose": "~0.4.0"
+    "grunt-nose": "~0.4.0",
+    "gulp": "~3.8.1",
+    "gulp-shell": "~0.2.7"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
