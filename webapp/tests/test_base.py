@@ -7,7 +7,7 @@ class BaseTestCase(TestCase):
     """A base test case for flask."""
 
     def create_app(self):
-        app.config.from_object('config.TestConfiguration')
+        app.config.from_object('webapp.config.TestConfiguration')
         return app
 
     def setUp(self):
