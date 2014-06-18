@@ -7,8 +7,8 @@ gulp.task('default', function() {
 // Grunt is seeming better for tests. But will implement something
 // else with gulp
 gulp.task('tests', function() {
-  gulp.watch('*.py', shell.task([
-    'nosetests --rednose'
+  gulp.watch(['*.py','**/*.py'], shell.task([
+    'nosetests --rednose --force-color'
   ], { ignoreErrors: true }));
 });
 
