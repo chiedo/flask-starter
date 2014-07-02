@@ -8,7 +8,7 @@ var sass = require('gulp-sass');
 minifyCSS = require('gulp-minify-css');
 
 var paths = {
-  scripts: ['webapp/static/js/dev/**/*.js'],
+  scripts: ['webapp/static/js/dev/global.js','webapp/static/js/dev/**/*.js'],
   css: ['webapp/static/css/dev/global.scss','webapp/static/css/dev/**/*.scss'],
   images: 'webapp/static/img/**/*'
 };
