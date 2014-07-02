@@ -42,7 +42,6 @@ gulp.task('images', ['clean'], function() {
 gulp.task('watch', function() {
   gulp.watch(paths.css, ['sass']);
   gulp.watch(paths.scripts, ['scripts']);
-  gulp.watch(paths.images, ['images']);
 });
 
 gulp.task('tests', function() {
