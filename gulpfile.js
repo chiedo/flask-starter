@@ -9,7 +9,7 @@ minifyCSS = require('gulp-minify-css');
 
 var paths = {
   scripts: ['webapp/static/js/dev/**/*.js'],
-  css: ['webapp/static/css/dev/**/*.scss'],
+  css: ['webapp/static/css/dev/global.scss','webapp/static/css/dev/**/*.scss'],
   images: 'webapp/static/img/**/*'
 };
 
@@ -40,6 +40,7 @@ gulp.task('images', ['clean'], function() {
 });
 
 gulp.task('watch', function() {
+  gulp.watch(paths.css, ['sass']);
   gulp.watch(paths.scripts, ['scripts']);
   gulp.watch(paths.images, ['images']);
 });
