@@ -26,7 +26,7 @@ class BaseConfiguration(object):
     SECRET_KEY = "secret"
 
     # Leave as a slash if served locally
-    STATIC_URL = "/"
+    STATIC_URL = "/static/"
 
 
 class TestConfiguration(BaseConfiguration):
