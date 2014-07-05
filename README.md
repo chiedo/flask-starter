@@ -1,4 +1,19 @@
-1. First set up your virtualenv
-2. Run pip install -r requirements.txt to get all packages.
-3. Run: npm install (after installing npm and node of course)
-4. Start the task runner for tests, etc by running: gulp
+1. Download Vagrant
+2. Download Virtualbox
+3. To set up your Vagrant development environment, execute the following in the terminal:
+```
+vagrant up
+```
+4. To connect to your development environment, execute
+```
+vagrant ssh
+```
+5. Navigate to the application directory and start the python server
+```
+cd /vagrant
+python manage.py runserver 0.0.0.0:8000
+```
+6. To run tests and tasks, create another tab, start vagrant ssh and run:
+```
+gulp
+```
