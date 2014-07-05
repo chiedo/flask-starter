@@ -4,7 +4,7 @@ VAGRANTFILE_API_VERSION = "2"
 # The answer 'yes' is piped into the commands that require 'Y' as user input
 $script = <<SCRIPT
 yes | sudo apt-get install libpq-dev
-yes | sudo apt-get install nodejs
+yes | sudo apt-get install nodejs npm
 yes | sudo apt-get install python-pip python-dev build-essential 
 yes | sudo pip install --upgrade pip
 yes | sudo apt-get install git
