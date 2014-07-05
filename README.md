@@ -11,7 +11,7 @@ vagrant ssh
 5. Navigate to the application directory and start the python server
 ```
 cd /vagrant
-python manage.py runserver 0.0.0.0:8000
+python run.py
 ```
 6. To run tests and tasks, create another tab, start vagrant ssh and run:
 ```
