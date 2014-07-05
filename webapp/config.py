@@ -6,7 +6,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 class BaseConfiguration(object):
     # Define the database - we are working with
     # SQLite for this example
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'webapp.db')
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@localhost/webapp'
     DATABASE_CONNECT_OPTIONS = {}
 
     # Application threads. A common general assumption is
@@ -27,6 +27,16 @@ class BaseConfiguration(object):
 
     # Leave as a slash if served locally
     STATIC_URL = "/static/"
+
+    if 'FLASK_DEV_ENV' in os.environ:
+        # These will overwite any settings above
+        SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'webapp.db')
+        DATABASE_CONNECT_OPTIONS = {}
+        THREADS_PER_PAGE = 2
+        CSRF_ENABLED = True
+        CSRF_SESSION_KEY = "secret"
+        SECRET_KEY = "secret"
+        STATIC_URL = "/static/"
 
 
 class TestConfiguration(BaseConfiguration):
