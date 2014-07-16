@@ -6,6 +6,6 @@ routes = Blueprint('index', __name__)
 @routes.route('/')
 def index():
     try:
-        return render_template("index.html")
+        return render_template("index.html", page='index')
     except TemplateNotFound:
         abort(404)
