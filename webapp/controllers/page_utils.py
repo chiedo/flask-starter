@@ -1,6 +1,6 @@
-def global_tasks(request):
-    """Performs all the tasks that should happen on every page"""
-    return 'stub'
+def global_response_handler(request, response):
+    """Handles Formatting of the response that should take place on all pages"""
+    return response
 
 
 def global_args(request):
