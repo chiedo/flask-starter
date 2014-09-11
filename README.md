@@ -17,5 +17,5 @@ python run.py
 ```
 gulp
 ```
-7. You can access the mysql server at port 3307 with the username root and the password root. 
+7. You can access the mysql server at port 5433 with the username root and the password root. 
 8. You can stop vagrant by running 'vagrant halt' or completely destroy the vagrant machine by running 'vagrant destroy'.

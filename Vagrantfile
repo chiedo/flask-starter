@@ -26,6 +26,9 @@ then
     echo "CREATE DATABASE flask_app_default" | mysql -uroot -proot
 
     touch /var/log/databasesetup
+    echo "CREATE USER 'root'@'%' IDENTIFIED BY 'root';" | mysql -uroot -proot
+    #make mysql listen to connections from the outside
+    sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mysql/my.cnf
 
     if [ -f /vagrant/data/initial.sql ];
     then
@@ -62,7 +65,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # forward the python runserver port
   config.vm.network "forwarded_port", guest: 5000, host: 5001
   # forward postgresql
-  config.vm.network "forwarded_port", guest: 3306, host: 3307
+  config.vm.network "forwarded_port", guest: 3306, host: 5433
 
   # run the script from above
   config.vm.provision "shell", inline: $script
