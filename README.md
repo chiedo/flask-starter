@@ -8,7 +8,7 @@ vagrant up
 ```
 vagrant ssh
 ```
-5. Navigate to the application directory and start the python server
+5. Navigate to the application directory and start the python server. You will be able to see this server on your local machine at port 5001 in the browser.
 ```
 cd /vagrant
 python run.py
@@ -17,3 +17,5 @@ python run.py
 ```
 gulp
 ```
+7. You can access the mysql server at port 3307 with the username root and the password root. 
+8. You can stop vagrant by running 'vagrant halt' or completely destroy the vagrant machine by running 'vagrant destroy'.

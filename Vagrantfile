@@ -3,6 +3,10 @@ VAGRANTFILE_API_VERSION = "2"
 # These are the scripts that will be run by the terminal upon creation of a new machine.
 # The answer 'yes' is piped into the commands that require 'Y' as user input
 $script = <<SCRIPT
+sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password password root'
+sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again password root'
+sudo apt-get update
+sudo apt-get -y install mysql-server-5.5
 yes | sudo apt-get install libpq-dev
 yes | sudo apt-get install nodejs nodejs-legacy npm
 yes | sudo apt-get install python-pip python-dev build-essential 
@@ -14,22 +18,17 @@ cd /vagrant
 sudo pip install -r requirements.txt 
 npm install
 
-# This sets up postgresql
+# sets up mysql server
 if [ ! -f /var/log/databasesetup ];
 then
-  # installs postgresql
-  yes | sudo apt-get install postgresql postgresql-contrib
-  yes | sudo apt-get install postgresql-client
-  # sets 'postgres' as the password for the postgres user.
-  sudo -u postgres psql -U postgres -d postgres -c "alter user postgres with password 'postgres';"
-  # sets postgres to start automatically on the restarting of the machine
-  postgres -D /usr/local/pgsql/data >/var/log/postgres.log 2>&1 &
-  # make postgres accept connections from the host machine using the forwarded ports
-  echo "listen_addresses = '*'" | sudo tee -a /etc/postgresql/9.3/main/postgresql.conf 
-  echo "host    all    all    0.0.0.0/0    md5" | sudo tee -a /etc/postgresql/9.3/main/pg_hba.conf
-  # restart postgres
-  sudo service postgresql restart
-  touch /var/log/databasesetup
+    echo "CREATE DATABASE flask_app_default" | mysql -uroot -proot
+
+    touch /var/log/databasesetup
+
+    if [ -f /vagrant/data/initial.sql ];
+    then
+        mysql -uroot -proot rails_app_development < /vagrant/data/initial.sql
+    fi
 fi
 
 # This sets up elastic beanstalk
@@ -61,7 +60,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # forward the python runserver port
   config.vm.network "forwarded_port", guest: 5000, host: 5001
   # forward postgresql
-  config.vm.network "forwarded_port", guest: 5432, host: 5433
+  config.vm.network "forwarded_port", guest: 3306, host: 3307
 
   # run the script from above
   config.vm.provision "shell", inline: $script
