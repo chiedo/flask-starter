@@ -14,6 +14,8 @@ yes | sudo pip install --upgrade pip
 yes | sudo apt-get install git
 yes | sudo apt-get install vim-nox
 yes | sudo apt-get install sqlite3 libsqlite3-dev
+sudo update-rc.d mysql defaults
+sudo service mysql start
 cd /vagrant
 sudo pip install -r requirements.txt 
 npm install
