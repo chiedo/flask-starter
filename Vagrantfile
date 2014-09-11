@@ -15,7 +15,6 @@ yes | sudo apt-get install git
 yes | sudo apt-get install vim-nox
 yes | sudo apt-get install sqlite3 libsqlite3-dev
 sudo update-rc.d mysql defaults
-sudo service mysql start
 cd /vagrant
 sudo pip install -r requirements.txt 
 npm install
@@ -29,6 +28,7 @@ then
     echo "CREATE USER 'root'@'%' IDENTIFIED BY 'root';" | mysql -uroot -proot
     #make mysql listen to connections from the outside
     sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mysql/my.cnf
+    sudo service mysql restart
 
     if [ -f /vagrant/data/initial.sql ];
     then
