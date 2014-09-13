@@ -27,3 +27,7 @@ sudo pip install -r requirements.txt
 ```
 gulp
 ```
+-To run the application, enter the following from within your vagrant VM:
+```
+python run.py
+```
