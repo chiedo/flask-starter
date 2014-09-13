@@ -65,7 +65,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
 
   # forward the python runserver port
-  config.vm.network "forwarded_port", guest: 5000, host: 5001
+  config.vm.network "forwarded_port", guest: 5000, host: 3001
   # forward postgresql
   config.vm.network "forwarded_port", guest: 3306, host: 5433
 
