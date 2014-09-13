@@ -31,3 +31,6 @@ gulp
 ```
 python run.py
 ```
+
+###Notes:
+>* If you have an issue with mysql not connecting, you may need to restart mysql by running 'sudo service mysql restart'
