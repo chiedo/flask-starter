@@ -7,6 +7,7 @@ sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password pas
 sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again password root'
 sudo apt-get update
 sudo apt-get -y install mysql-server-5.5
+sudo apt-get -y install unzip
 yes | sudo apt-get install libpq-dev
 yes | sudo apt-get install nodejs nodejs-legacy npm
 yes | sudo apt-get install python-pip python-dev build-essential 
