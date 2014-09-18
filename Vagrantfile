@@ -34,17 +34,6 @@ then
     sudo service mysql restart
 fi
 
-# This sets up elastic beanstalk
-if [ ! -f /var/log/ebsetup ];
-then
-  cd
-  wget https://s3.amazonaws.com/elasticbeanstalk/cli/AWS-ElasticBeanstalk-CLI-2.6.3.zip
-  unzip AWS-ElasticBeanstalk-CLI-2.6.3.zip
-  rm AWS-ElasticBeanstalk-CLI-2.6.3.zip
-  echo 'export PATH="$PATH:/home/vagrant/AWS-ElasticBeanstalk-CLI-2.6.3/eb/linux/python2.7"' | sudo tee -a /home/vagrant/.bashrc
-  sudo touch /var/log/ebsetup
-fi
-
 # This sets up dev environment variables
 if [ ! -f /var/log/devenv ];
 then
