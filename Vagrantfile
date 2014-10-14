@@ -41,7 +41,7 @@ fi
 if [ ! -f /var/log/devenv ];
 then
   cd
-  echo 'export FLASK_DEV_ENV="true"' | sudo tee -a /home/vagrant/.bashrc
+  echo 'export FLASK_ENV="development"' | sudo tee -a /home/vagrant/.bashrc
   touch /var/log/devenv
 fi
 
