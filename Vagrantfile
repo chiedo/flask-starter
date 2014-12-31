@@ -41,7 +41,16 @@ fi
 if [ ! -f /var/log/devenv ];
 then
   cd
+  #FLASK
   echo 'export FLASK_ENV="development"' | sudo tee -a /home/vagrant/.bashrc
+  echo 'export FLASK_SECRET_KEY="NONE"' | sudo tee -a /home/vagrant/.bashrc
+  echo 'export FLASK_CSRF_SESSION_KEY="NONE"' | sudo tee -a /home/vagrant/.bashrc
+  #MYSQL
+  echo 'export MYSQL_DATABASE="flask_app_default"' | sudo tee -a /home/vagrant/.bashrc
+  echo 'export MYSQL_USERNAME="root"' | sudo tee -a /home/vagrant/.bashrc
+  echo 'export MYSQL_PASSWORD="root"' | sudo tee -a /home/vagrant/.bashrc
+  echo 'export MYSQL_HOSTNAME="127.0.0.1"' | sudo tee -a /home/vagrant/.bashrc
+  echo 'export MYSQL_PORT=3306' | sudo tee -a /home/vagrant/.bashrc
   touch /var/log/devenv
 fi
 
