@@ -9,7 +9,8 @@ sudo apt-get install -y python-software-properties software-properties-common
 sudo add-apt-repository -y ppa:pi-rho/dev
 sudo apt-get update
 sudo apt-get install -y tmux=1.9a-1~ppa1~t
-sudo apt-get -y install mysql-server-5.5
+sudo apt-get -y install mysql-server-5.5 libmysqlclient-dev
+sudo apt-get install build-essential autoconf libtool pkg-config python-opengl python-imaging python-pyrex python-pyside.qtopengl idle-python2.7 qt4-dev-tools qt4-designer libqtgui4 libqtcore4 libqt4-xml libqt4-test libqt4-script libqt4-network libqt4-dbus python-qt4 python-qt4-gl libgle3 python-dev
 sudo apt-get -y install unzip
 yes | sudo apt-get install libpq-dev
 yes | sudo apt-get install nodejs nodejs-legacy npm
