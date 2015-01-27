@@ -70,5 +70,30 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # run the script from above
   config.vm.provision "shell", inline: $script
-  config.vm.synced_folder ".", "/vagrant", :mount_options => ['dmode=777,fmode=666']
+  #config.vm.synced_folder ".", "/vagrant", :mount_options => ['dmode=777,fmode=666']
+  # Replace the above with this. This should make Vagrant much faster
+  # Required for NFS to work, pick any local IP
+  config.vm.network :private_network, ip: '192.168.50.140'
+  # Use NFS for shared folders for better performance
+  config.vm.synced_folder '.', '/vagrant', nfs: true
+
+  # Sets Vagrant VM to use. 1/4 system memory & access to all cpu cores on the host
+  host = RbConfig::CONFIG['host_os']
+  if host =~ /darwin/
+    cpus = `sysctl -n hw.ncpu`.to_i
+    # sysctl returns Bytes and we need to conconfig.rt to MB
+    mem = `sysctl -n hw.memsize`.to_i / 1024 / 1024 / 4
+  elsif host =~ /linux/
+    cpus = `nproc`.to_i
+    # meminfo shows KB and we need to conconfig.rt to MB
+    mem = `grep 'MemTotal' /proc/meminfo | sed -e 's/MemTotal://' -e 's/ kB//'`.to_i / 1024 / 4
+  else # sorry Windows folks, I can't help you
+    cpus = 2
+    mem = 1024
+  end
+
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--memory", mem]
+    vb.customize ["modifyvm", :id, "--cpus", cpus]
+  end
 end
