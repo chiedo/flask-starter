@@ -1,5 +1,6 @@
 # Import flask and template operators
 from flask import Flask
+import os
 
 # Import SQLAlchemy
 from flask.ext.sqlalchemy import SQLAlchemy
@@ -16,3 +17,16 @@ db = SQLAlchemy(app)
 
 # Creates all tables not created
 db.create_all()
+
+# Connect all the routes from the controllers
+controller_names = []
+for file in [doc for doc in os.listdir("project/controllers") if doc.endswith(".py") and doc != "__init__.py"]:
+    controller_names.append("project.controllers." + file.split(".")[0])  # remove the .py from the file name
+
+# Loop through all contollers and register their blueprint
+for controller_name in controller_names:
+    # This dynamically imports all modules in the tests_to_run list. This allows me to import a module using
+    # a variable. This is fairly advanced and hard to follow for the beginner.
+    controller = __import__(controller_name, fromlist=[controller_name])
+    if hasattr(controller, "routes"):
+        app.register_blueprint(controller.routes)

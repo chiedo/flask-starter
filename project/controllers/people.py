@@ -1,11 +1,12 @@
 from flask import Blueprint, request
 from project.models.person import Person
 routes = Blueprint('person', __name__)
+route_prefix = "/people"
 # note-to-self: names of the definitions matter. Make sure
 # they make sense
 
 
-@routes.route('/', methods=['GET', 'POST'])
+@routes.route(route_prefix + '/', methods=['GET', 'POST'])
 def people():
     if request.method == 'GET':
         # outputs json needs to be in try catch eventually
@@ -15,7 +16,7 @@ def people():
         return 'post'
 
 
-@routes.route('/<id>/', methods=['GET', 'DELETE', 'PUT'])
+@routes.route(route_prefix + '/<id>/', methods=['GET', 'DELETE', 'PUT'])
 def person(id):
     if request.method == 'GET':
         # or could use .all()
