@@ -1,5 +1,5 @@
 """Define a base model for other database tables to inherit"""
-from webapp import db
+from project import db
 
 
 class Base(db.Model):

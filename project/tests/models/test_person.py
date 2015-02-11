@@ -1,6 +1,6 @@
-from webapp.tests.test_base import BaseTestCase
-from webapp.models.person import Person
-from webapp import db
+from project.tests.test_base import BaseTestCase
+from project.models.person import Person
+from project import db
 
 
 class Tests(BaseTestCase):

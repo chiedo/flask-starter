@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, abort, request, make_response
 from jinja2 import TemplateNotFound
-import webapp.controllers.page_utils as page_utils
+import project.controllers.page_utils as page_utils
 routes = Blueprint('index', __name__)
 
 

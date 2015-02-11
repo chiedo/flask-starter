@@ -1,13 +1,13 @@
 from flask.ext.testing import TestCase
 
-from webapp import app, db
+from project import app, db
 
 
 class BaseTestCase(TestCase):
     """A base test case for flask."""
 
     def create_app(self):
-        app.config.from_object('webapp.config.TestConfiguration')
+        app.config.from_object('project.config.TestConfiguration')
         return app
 
     def setUp(self):

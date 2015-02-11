@@ -17,5 +17,5 @@ gulp
 ```
 -To run the application, enter the following from within your vagrant VM at /vagrant:
 ```
-python run.py
+python manage.py
 ```

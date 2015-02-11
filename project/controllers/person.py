@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from webapp.models.person import Person
+from project.models.person import Person
 routes = Blueprint('person', __name__)
 # note-to-self: names of the definitions matter. Make sure
 # they make sense

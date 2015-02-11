@@ -8,9 +8,9 @@ var sass = require('gulp-sass');
 minifyCSS = require('gulp-minify-css');
 
 var paths = {
-  scripts: ['webapp/static/js/dev/global.js','webapp/static/js/dev/**/*.js'],
-  css: ['webapp/static/css/dev/global.scss','webapp/static/css/dev/**/*.scss'],
-  images: 'webapp/static/img/**/*'
+  scripts: ['project/static/js/dev/global.js','project/static/js/dev/**/*.js'],
+  css: ['project/static/css/dev/global.scss','project/static/css/dev/**/*.scss'],
+  images: 'project/static/img/**/*'
 };
 
 gulp.task('sass', function () {
@@ -18,7 +18,7 @@ gulp.task('sass', function () {
     .pipe(sass())
     .pipe(minifyCSS({keepBreaks:false}))
     .pipe(concat('all.min.css'))
-    .pipe(gulp.dest('webapp/static/css/build'));
+    .pipe(gulp.dest('project/static/css/build'));
 });
 
 gulp.task('clean', function(cb) {
@@ -30,13 +30,13 @@ gulp.task('scripts', ['clean'], function() {
   return gulp.src(paths.scripts)
     .pipe(uglify())
     .pipe(concat('all.min.js'))
-    .pipe(gulp.dest('webapp/static/js/build'));
+    .pipe(gulp.dest('project/static/js/build'));
 });
 
 gulp.task('images', ['clean'], function() {
  return gulp.src(paths.images)
     .pipe(imagemin({optimizationLevel: 5}))
-    .pipe(gulp.dest('webapp/static/img'));
+    .pipe(gulp.dest('project/static/img'));
 });
 
 gulp.task('watch', function() {
