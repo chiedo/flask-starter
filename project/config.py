@@ -9,7 +9,7 @@ class BaseConfiguration(object):
     """This is the base configuration for the app. Any of these configurations may be
     overridden by configurations that extend it"""
 
-    SQLALCHEMY_DATABASE_URI = "mysql://%s:%s@%s/%s", (
+    SQLALCHEMY_DATABASE_URI = "mysql://%s:%s@%s/%s" % (
         os.environ["MYSQL_USERNAME"],
         os.environ["MYSQL_PASSWORD"],
         os.environ["MYSQL_HOSTNAME"],
