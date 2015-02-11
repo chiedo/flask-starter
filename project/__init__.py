@@ -15,9 +15,6 @@ app.config.from_object('project.config.BaseConfiguration')
 # by modules and controllers
 db = SQLAlchemy(app)
 
-# Creates all tables not created
-db.create_all()
-
 # Connect all the routes from the controllers
 controller_names = []
 for file in [doc for doc in os.listdir("project/controllers") if doc.endswith(".py") and doc != "__init__.py"]:
@@ -30,3 +27,6 @@ for controller_name in controller_names:
     controller = __import__(controller_name, fromlist=[controller_name])
     if hasattr(controller, "routes"):
         app.register_blueprint(controller.routes)
+
+# Creates all tables not created for each controller that was imported above
+db.create_all()

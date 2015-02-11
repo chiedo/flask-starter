@@ -7,8 +7,8 @@ import json
 class Person(Base):
     __tablename__ = 'people'
     name = db.Column(db.String(128), nullable=False)
-    email = db.Column(db.SmallInteger, nullable=True)
-    age = db.Column(db.String(128), nullable=False)
+    email = db.Column(db.String(128), nullable=False)
+    age = db.Column(db.SmallInteger, nullable=True)
 
     def __init__(self, name, email, age):
         self.name  = name
