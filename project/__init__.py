@@ -29,7 +29,7 @@ try:
         if hasattr(controller, "routes"):
             app.register_blueprint(controller.routes)
 except(OSError):
-    exit()
+    pass
 
 # Creates all tables not created for each controller that was imported above
 db.create_all()
