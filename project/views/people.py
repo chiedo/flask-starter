@@ -1,5 +1,6 @@
 from flask import Blueprint, request
 from project.models.person import Person
+from project.extras.request_mods import *
 routes = Blueprint('person', __name__)
 route_prefix = "/people"
 # note-to-self: names of the definitions matter. Make sure
