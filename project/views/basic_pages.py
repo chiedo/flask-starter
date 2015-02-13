@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, abort, request, make_response
 from jinja2 import TemplateNotFound
 routes = Blueprint('static_pages', __name__)
-import project.extras.page_utils as page_utils
+from project.extras.request_mods import *
 route_prefix = ""
 
 
@@ -11,9 +11,8 @@ def index():
     try:
         # The below uses the page_utils to modify the response. Great for eliminating
         # duplicate code
-        global_page_args = page_utils.global_args(request)
-        response = make_response(render_template("index.html", page='index', **global_page_args))
-        return page_utils.global_response_handler(request, response)
+        response = make_response(render_template("index.html", page='index', **global_args(request)))
+        return response
     except TemplateNotFound:
         abort(404)
 
