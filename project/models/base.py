@@ -1,4 +1,10 @@
-"""Define a base model for other database tables to inherit"""
+"""
+**************************
+Base
+**************************
+
+A base model for other database tables to inherit
+"""
 from project import db
 
 

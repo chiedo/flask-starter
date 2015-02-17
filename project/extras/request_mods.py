@@ -1,3 +1,10 @@
+"""
+**************************
+Request Mods
+**************************
+
+Used for modifying requests before and after the requests are processed
+"""
 from project import app
 from flask import request
 

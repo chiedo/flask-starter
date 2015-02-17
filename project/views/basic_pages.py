@@ -1,3 +1,10 @@
+"""
+**************************
+Basic Pages
+**************************
+
+Basic pages with pretty much no dynamic content
+"""
 from flask import Blueprint, render_template, abort, request, make_response
 from jinja2 import TemplateNotFound
 routes = Blueprint('static_pages', __name__)

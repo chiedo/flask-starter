@@ -1,3 +1,10 @@
+"""
+**************************
+Person Controller
+**************************
+
+The controller for the person related urls
+"""
 from flask import Blueprint, request
 from project.models.person import Person
 from project.extras.request_mods import *

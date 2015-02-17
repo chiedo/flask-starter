@@ -1,4 +1,10 @@
-"""The model for a person"""
+"""
+**************************
+Person
+**************************
+
+A person.
+"""
 from project import db
 from project.models.base import Base
 import json
