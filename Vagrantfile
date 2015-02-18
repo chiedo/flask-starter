@@ -10,7 +10,7 @@ sudo add-apt-repository -y ppa:pi-rho/dev
 sudo apt-get update
 sudo apt-get install -y tmux=1.9a-1~ppa1~t
 sudo apt-get -y install mysql-server-5.5 libmysqlclient-dev
-sudo apt-get install libxml2-dev libxslt1-dev python-dev
+sudo apt-get install libxml2-dev libxslt1-dev libxslt-dev python-dev
 sudo apt-get -y install unzip
 sudo apt-get -y remove git
 yes | sudo apt-get install libpq-dev
