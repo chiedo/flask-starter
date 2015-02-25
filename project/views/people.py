@@ -5,9 +5,10 @@ Person Controller
 
 The controller for the person related urls
 """
-from flask import Blueprint, request
+from flask import Blueprint, request, redirect
 from project.models.person import Person
 from project.extras.request_mods import *
+from project import db
 routes = Blueprint('person', __name__)
 route_prefix = "/people"
 # note-to-self: names of the definitions matter. Make sure
@@ -21,7 +22,15 @@ def people():
         data = Person.query.all()
         return Person.json(data)
     elif request.method == 'POST':
-        return 'post'
+        data = request.get_json()
+        name = data["person"]["name"]
+        email = data["person"]["email"]
+        age = data["person"]["age"]
+
+        person = Person(name, email, age)
+        db.session.add(person)
+        db.session.commit()
+        return redirect("/people/")
 
 
 @routes.route(route_prefix + '/<id>/', methods=['GET', 'DELETE', 'PUT'])

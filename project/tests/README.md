@@ -5,12 +5,13 @@ The code should be commented pretty thouroughly. If anything is unclear, please 
 Testing concept examples
 =====================
 - Models
-- Controllers
-- Helpers
+-- project/tests/models/test_people.py
+- Views
+-- project/tests/views/test_basic_pages.py
+-- project/tests/views/test_people.py
 - Misc classes
-- Stubs (mocha)
-- Mocks (mocha)
-- REST API
+- Stubs (pretend)
+- Mocks (mock)
 
 Testing resources
 =====================
@@ -18,5 +19,5 @@ Testing resources
 -- https://pythonhosted.org/Flask-Testing/ (I will not repeat what is already in this documentation.)
 - Official mock documentation
 -- https://pypi.python.org/pypi/mock
-- Stubs (pretend)
+- Pretend documentation
 -- https://github.com/alex/pretend
