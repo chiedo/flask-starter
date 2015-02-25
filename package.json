@@ -1,7 +1,7 @@
 {
   "name": "flask-starter",
   "version": "0.0.0",
-  "description": "1. First set up your virtualenv 2. Run pip install -r requirements.txt to get all packages. 3. To run tests, execute: nose --rednose -- see http://www.realpython.com/blog/python/python-web-applications-with-flask-part-iii/#.U6BIto1dU5E for more info on the tests.",
+  "description": "",
   "main": "index.js",
   "dependencies": {
   },
@@ -14,9 +14,6 @@
     "gulp-sass": "^0.7.2",
     "gulp-shell": "~0.2.7",
     "gulp-uglify": "^0.3.1"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
