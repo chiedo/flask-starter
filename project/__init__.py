@@ -1,8 +1,5 @@
-# Import flask and template operators
 from flask import Flask
 import os
-
-# Import SQLAlchemy
 from flask.ext.sqlalchemy import SQLAlchemy
 
 # Define the WSGI application object
@@ -32,4 +29,4 @@ except(OSError):
     pass
 
 # Creates all tables not created for each view that was imported above
-db.create_all()
+# db.create_all()

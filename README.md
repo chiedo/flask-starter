@@ -17,5 +17,6 @@ gulp
 ```
 -To run the application, enter the following from within your vagrant VM at /vagrant:
 ```
-python run.py
+python app.py runserver -h 0.0.0.0
 ```
+- To handle migrations, we are using Flask-Migrate. Obviously, since you will be starting a new project, you will want to remove all migrations created for this demo before starting your project and initalizing your migrations. See the docs: https://flask-migrate.readthedocs.org/en/latest/
