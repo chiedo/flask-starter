@@ -6,8 +6,7 @@ from project import db
 
 class Tests(BaseTestCase):
     def test_model(self):
-        x = PersonFactory.build(name="John Doe")
-        db.session.add(x)
+        PersonFactory.create(name="John Doe")
         db.session.commit()
         person = Person.query.filter_by(name='John Doe').first()
 
