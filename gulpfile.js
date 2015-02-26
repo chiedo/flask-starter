@@ -10,7 +10,7 @@ minifyCSS = require('gulp-minify-css');
 var paths = {
   scripts: ['project/static/js/dev/global.js','project/static/js/dev/**/*.js'],
   css: ['project/static/css/dev/global.scss','project/static/css/dev/**/*.scss'],
-  images: 'project/static/img/**/*'
+  images: 'project/static/img/**/*.{png,jpg,gif,jpeg}'
 };
 
 gulp.task('sass', function () {
@@ -48,12 +48,6 @@ gulp.task('tests', function() {
   gulp.watch(['*.py','**/*.py'], shell.task([
     'nosetests --rednose --force-color --nocapture'
     //'nosetests --rednose --force-color --nocapture --with-coverage --cover-package=app.tests --cover-tests'
-  ], { ignoreErrors: true }));
-});
-
-gulp.task('clear-pyc', function() {
-  gulp.watch(['*.py','**/*.py'], shell.task([
-    'find . -name "*.pyc" -exec rm "{}" ";"'
   ], { ignoreErrors: true }));
 });
 

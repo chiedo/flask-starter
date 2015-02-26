@@ -13,13 +13,14 @@ sudo apt-get -y install mysql-server-5.5 libmysqlclient-dev
 sudo apt-get install libxml2-dev libxslt1-dev libxslt-dev python-dev
 sudo apt-get -y install unzip
 sudo apt-get -y remove git
-yes | sudo apt-get install libpq-dev
-yes | sudo apt-get install nodejs nodejs-legacy npm
-yes | sudo apt-get install python-pip python-dev build-essential 
-yes | sudo pip install --upgrade pip
-yes | sudo apt-get install git
-yes | sudo apt-get install vim-nox
-yes | sudo apt-get install sqlite3 libsqlite3-dev
+sudo apt-get -y install libpq-dev
+sudo apt-get -y install nodejs nodejs-legacy npm
+sudo apt-get -y install python-pip python-dev build-essential 
+sudo pip -y install --upgrade pip
+sudo apt-get -y install git
+sudo apt-get -y install vim-nox
+sudo apt-get -y install sqlite3 libsqlite3-dev
+sudo gem -y install sass
 sudo update-rc.d mysql defaults
 cd /vagrant
 sudo pip install -r requirements.txt 
