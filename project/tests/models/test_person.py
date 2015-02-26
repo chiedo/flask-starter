@@ -2,6 +2,7 @@ from project.tests.test_base import BaseTestCase
 from project.models.person import Person
 from project.tests.factories import PersonFactory
 from project import db
+from expects import *
 
 
 class TestPerson(BaseTestCase):
@@ -10,4 +11,4 @@ class TestPerson(BaseTestCase):
         db.session.commit()
         person = Person.query.filter_by(name='John Doe').first()
 
-        self.assertTrue(person.name == "John Doe")
+        expect(person.name).to(equal("John Doe"))

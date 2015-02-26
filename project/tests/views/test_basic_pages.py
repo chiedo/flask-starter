@@ -1,4 +1,5 @@
 from project.tests.test_base import BaseTestCase
+from expects import *
 
 
 class TestBasicPages(BaseTestCase):
@@ -6,4 +7,4 @@ class TestBasicPages(BaseTestCase):
         self.client.get("/")
 
         # Make sure the context variable is passed to the index page
-        assert(self.get_context_variable("page") == "index")
+        expect(self.get_context_variable("page")).to(equal("index"))

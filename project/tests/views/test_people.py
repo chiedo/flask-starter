@@ -3,6 +3,7 @@ from project.tests.factories import PersonFactory
 from project.models.person import Person
 from project import db
 import json
+from expects import *
 
 
 class TestPeople(BaseTestCase):
@@ -11,7 +12,7 @@ class TestPeople(BaseTestCase):
         db.session.commit()
         response = self.client.get("/people/")
 
-        assert "John Doe" in response.data
+        expect("John Doe" in response.data).to(be_true)
 
     def test_post_endpoint(self):
         person_attributes = PersonFactory.attributes()
@@ -25,4 +26,4 @@ class TestPeople(BaseTestCase):
 
         # Check for the person in the database
         person = Person.query.filter_by(name='Bob Nolan').first()
-        assert(person is not None)
+        expect(person).not_to(equal(None))
