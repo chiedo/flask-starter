@@ -1,6 +1,6 @@
 from project.tests.test_base import BaseTestCase
 from project.extras.example_class import ExampleClass
-from mock import Mock, PropertyMock
+from mock import Mock
 from pretend import stub
 
 
