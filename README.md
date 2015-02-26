@@ -47,5 +47,6 @@ Some Helpful External Docs
 -----------
 - Flask - http://flask.pocoo.org/
 - Flask-Migrate - https://flask-migrate.readthedocs.org/en/latest/
+- Flask-Testing - https://pythonhosted.org/Flask-Testing/ and http://flask.pocoo.org/docs/0.10/testing/
 - Expects - https://github.com/jaimegildesagredo/expects
 - Nosetests - https://nose.readthedocs.org/en/latest/
