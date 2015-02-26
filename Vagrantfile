@@ -76,8 +76,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Replace the above with this. This should make Vagrant much faster
   # Required for NFS to work, pick any local IP
   config.vm.network :private_network, ip: '192.168.50.140'
-  # Use NFS for shared folders for better performance
-  config.vm.synced_folder '.', '/vagrant', nfs: true
+  # Use NFS for shared folders for better performance. The actimeo=2 option should make the live reload work wor sass,
+  # gulp, etc.
+  config.vm.synced_folder '.', '/vagrant', nfs: true, :mount_options => ['actimeo=2']
 
   # Sets Vagrant VM to use. 1/4 system memory & access to all cpu cores on the host
   host = RbConfig::CONFIG['host_os']

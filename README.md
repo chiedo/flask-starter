@@ -7,6 +7,10 @@ READ THIS FIRST (DO NOT IGNORE): https://gist.github.com/chiedojohn/c3e37041b829
 
 Local Development Environment
 ----------
+- To instal lxml needed packages, run
+```
+sudo apt-get install libxml2-dev libxslt1-dev libxslt-dev python-dev
+```
 - To get the necessary node packages installed, run
 ```
 sudo npm install gulp -g
