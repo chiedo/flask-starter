@@ -2,7 +2,7 @@ from project.tests.test_base import BaseTestCase
 from expects import *
 
 
-class TestBasicPages(BaseTestCase):
+class TestBasicPagesViews(BaseTestCase):
     def test_index_basic(self):
         self.client.get("/")
 

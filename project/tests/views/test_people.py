@@ -6,15 +6,15 @@ import json
 from expects import *
 
 
-class TestPeople(BaseTestCase):
-    def test_the_get_endpoint(self):
+class TestPeopleViews(BaseTestCase):
+    def test_the_get_endpoint_index(self):
         PersonFactory.create(name="John Doe")
         db.session.commit()
         response = self.client.get("/people/")
 
         expect("John Doe" in response.data).to(be_true)
 
-    def test_post_endpoint(self):
+    def test_the_post_endpoint(self):
         person_attributes = PersonFactory.attributes()
         person_attributes["name"] = "Bob Nolan"
 

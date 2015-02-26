@@ -5,7 +5,7 @@ from project import db
 from expects import *
 
 
-class TestPerson(BaseTestCase):
+class TestPersonModel(BaseTestCase):
     def test_model_creation(self):
         PersonFactory.create(name="John Doe")
         db.session.commit()
