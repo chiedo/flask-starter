@@ -20,6 +20,10 @@ sudo pip install -r requirements.txt
 ```
 gulp
 ```
+- To run tests alone, run
+```
+nosetests --rednose --force-color --nocapture
+```
 - To run the application, enter the following from within your vagrant VM at /vagrant:
 ```
 python app.py runserver -h 0.0.0.0

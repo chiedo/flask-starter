@@ -7,7 +7,6 @@ The controller for the person related urls
 """
 from flask import Blueprint, request, redirect
 from project.models.person import Person
-from project.extras.request_mods import *
 from project import db
 routes = Blueprint('person', __name__)
 route_prefix = "/people"

@@ -5,7 +5,7 @@ from project import db
 
 
 class Tests(BaseTestCase):
-    def test_model(self):
+    def test_model_creation(self):
         PersonFactory.create(name="John Doe")
         db.session.commit()
         person = Person.query.filter_by(name='John Doe').first()

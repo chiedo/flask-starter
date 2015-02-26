@@ -37,3 +37,12 @@ class Person(Base):
                 'age': i.age
             })
         return json.dumps(output)
+
+    def adult(self):
+        if(self.age >= 18):
+            return True
+        else:
+            return False
+
+    def age_str(self):
+        return str(self.age)

@@ -6,13 +6,14 @@ import json
 
 
 class Tests(BaseTestCase):
-    def test_get(self):
+    def test_the_get_endpoint(self):
         PersonFactory.create(name="John Doe")
         db.session.commit()
         response = self.client.get("/people/")
+
         assert "John Doe" in response.data
 
-    def test_post(self):
+    def test_post_endpoint(self):
         person_attributes = PersonFactory.attributes()
         person_attributes["name"] = "Bob Nolan"
 

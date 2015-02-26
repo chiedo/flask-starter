@@ -12,6 +12,8 @@ app.config.from_object('project.config.BaseConfiguration')
 # by modules and views
 db = SQLAlchemy(app)
 
+from project.extras.global_request_mods import *
+
 # Connect all the routes from the views
 try:
     view_names = []

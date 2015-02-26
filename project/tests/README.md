@@ -10,8 +10,11 @@ Testing concept examples
 -- project/tests/views/test_basic_pages.py
 -- project/tests/views/test_people.py
 - Misc classes
+-- project/tests/extras/test_example_class.py
 - Stubs (pretend)
+-- project/tests/extras/test_example_class.py
 - Mocks (mock)
+-- project/tests/extras/test_example_class.py
 
 Testing resources
 =====================
