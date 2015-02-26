@@ -1,7 +1,7 @@
 from project.tests.test_base import BaseTestCase
 
 
-class Tests(BaseTestCase):
+class TestBasicPages(BaseTestCase):
     def test_index_basic(self):
         self.client.get("/")
 

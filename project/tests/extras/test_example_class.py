@@ -4,7 +4,7 @@ from mock import Mock
 from pretend import stub
 
 
-class Tests(BaseTestCase):
+class TestExampleClass(BaseTestCase):
     def test_name_and_description(self):
         x = ExampleClass("Name", "Description")
         assert(x.name_and_description() == "Name - Description")

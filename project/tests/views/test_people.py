@@ -5,7 +5,7 @@ from project import db
 import json
 
 
-class Tests(BaseTestCase):
+class TestPeople(BaseTestCase):
     def test_the_get_endpoint(self):
         PersonFactory.create(name="John Doe")
         db.session.commit()

@@ -4,7 +4,7 @@ from project.tests.factories import PersonFactory
 from project import db
 
 
-class Tests(BaseTestCase):
+class TestPerson(BaseTestCase):
     def test_model_creation(self):
         PersonFactory.create(name="John Doe")
         db.session.commit()
