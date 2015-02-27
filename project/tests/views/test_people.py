@@ -33,9 +33,9 @@ class TestPeopleApi(BaseTestCase):
         person_attributes = PersonFactory.attributes()
         person_attributes["name"] = "Bob updated"
 
-        response = self.client.put("/people/%s/" % person.id, data=json.dumps(person_attributes),
+        self.client.put("/people/%s/" % person.id, data=json.dumps(person_attributes),
                         content_type='application/json')
-        print response
+
         # Check for the person in the database
         person = Person.query.first()
         expect(person.name).to(equal("Bob updated"))

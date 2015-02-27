@@ -28,28 +28,28 @@ class PeopleList(Resource):
         person = Person(name, email, age)
         db.session.add(person)
         db.session.commit()
-        return "1"
+        return make_json(person)
 
 
 class OnePerson(Resource):
     def get(self, person_id):
-        person = Person.query.filter_by(id=person_id)
+        person = Person.query.filter_by(id=person_id).first()
         return make_json(person)
 
     def put(self, person_id):
-        person = Person.query.filter_by(id=person_id)
+        person = Person.query.filter_by(id=person_id).first()
         data = request.get_json()
         person.name = data['name']
         person.email = data['email']
         person.age = data['age']
         db.session.commit()
-        return make_json(person)
+        return make_json(person), 201
 
     def delete(self, person_id):
-        person = Person.query.filter_by(id=person_id)
+        person = Person.query.filter_by(id=person_id).first()
         db.session.delete(person)
         db.session.commit()
-        return "1"
+        return '', 204
 
 api.add_resource(PeopleList, '/people/')
 api.add_resource(OnePerson, '/people/<int:person_id>/')

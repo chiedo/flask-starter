@@ -8,7 +8,6 @@ A person.
 from project import db
 from project.models.base import Base
 from project.extras.serializer import Serializer
-import json
 
 
 class Person(Base, Serializer):
@@ -25,9 +24,6 @@ class Person(Base, Serializer):
 
     def __repr__(self):
         return '<Name - %r>' % (self.name)
-
-    def as_json(self):
-        return json.dumps(self.to_serializable_dict())
 
     def adult(self):
         if(self.age >= 18):

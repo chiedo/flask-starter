@@ -11,4 +11,5 @@ class Serializer(object):
 
 
 def make_json(sql_alchemy_list):
+    if(isinstance(sql_alchemy_list, list) is False): sql_alchemy_list = [sql_alchemy_list]
     return [i.to_serializable_dict() for i in sql_alchemy_list]
