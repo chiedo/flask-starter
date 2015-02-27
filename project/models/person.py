@@ -7,11 +7,13 @@ A person.
 """
 from project import db
 from project.models.base import Base
+from project.extras.serializer import Serializer
 import json
 
 
-class Person(Base):
+class Person(Base, Serializer):
     __tablename__ = 'people'
+    __public__ = ['name', 'email', 'age']
     name = db.Column(db.String(128), nullable=False)
     email = db.Column(db.String(128), nullable=False)
     age = db.Column(db.SmallInteger, nullable=True)
@@ -24,19 +26,8 @@ class Person(Base):
     def __repr__(self):
         return '<Name - %r>' % (self.name)
 
-    @staticmethod
-    def json(data):
-        """Converts a result from sql alchemy into json"""
-        output = list()
-        if(type(data) is not list):
-            data = [data]
-        for i in data:
-            output.append({
-                'name': i.name,
-                'email': i.email,
-                'age': i.age
-            })
-        return json.dumps(output)
+    def as_json(self):
+        return json.dumps(self.to_serializable_dict())
 
     def adult(self):
         if(self.age >= 18):
