@@ -1,5 +1,7 @@
 flask-vagrant-starter
 =========
+<img src="https://travis-ci.org/chiedojohn/flask-vagrant-starter.svg?branch=master" />
+
 A framework for a new flask project utilizing vagrant for setting up the development environment and gulp as the task runner.
 
 READ THIS FIRST (DO NOT IGNORE): https://gist.github.com/chiedojohn/c3e37041b829f28c0c78
