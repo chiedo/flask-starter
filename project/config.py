@@ -2,26 +2,37 @@
 import os
 from datetime import datetime
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-environment = os.environ['FLASK_ENV']
+
+try:
+    environment = os.environ['FLASK_ENV']
+except KeyError:
+    environment = "development"
 
 
 class BaseConfiguration(object):
     """This is the base configuration for the app. Any of these configurations may be
     overridden by configurations that extend it"""
 
-    SQLALCHEMY_DATABASE_URI = "mysql://%s:%s@%s/%s" % (
-        os.environ["MYSQL_USERNAME"],
-        os.environ["MYSQL_PASSWORD"],
-        os.environ["MYSQL_HOSTNAME"],
-        os.environ["MYSQL_DATABASE"]
-    )
+    try:
+        SQLALCHEMY_DATABASE_URI = "mysql://%s:%s@%s/%s" % (
+            os.environ["MYSQL_USERNAME"],
+            os.environ["MYSQL_PASSWORD"],
+            os.environ["MYSQL_HOSTNAME"],
+            os.environ["MYSQL_DATABASE"]
+        )
+    except KeyError:
+        pass
 
     SQLALCHEMY_ECHO = False
     DATABASE_CONNECT_OPTIONS = {}
     THREADS_PER_PAGE = 4  # Application threads. 2 Per core
     CSRF_ENABLED = True  # Enable protection agains *Cross-site Request Forgery (CSRF)
-    CSRF_SESSION_KEY = os.environ['FLASK_CSRF_SESSION_KEY']  # Use a secure, unique and absolutely secret key
-    SECRET_KEY = os.environ['FLASK_SECRET_KEY']  # Secret key for signing cookies
+    try:
+        CSRF_SESSION_KEY = os.environ['FLASK_CSRF_SESSION_KEY']  # Use a secure, unique and absolutely secret key
+        SECRET_KEY = os.environ['FLASK_SECRET_KEY']  # Secret key for signing cookies
+    except KeyError:
+        CSRF_SESSION_KEY = ""
+        SECRET_KEY = ""
     STATIC_URL = '/static/'  # Could be S3 Bucket or something else
     YEAR = datetime.now().year
 
