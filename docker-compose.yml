@@ -1,0 +1,18 @@
+# Don't use this for production purposes. Docker compose is only for development and staging servers
+db:
+  image: mysql
+  env_file:
+    - .env
+  ports:
+    - "5433:3306"
+web:
+  build: .
+  command: python app.py runserver -h 0.0.0.0
+  volumes:
+    - .:/code
+  ports:
+    - "3001:5000"
+  links:
+    - db
+  env_file:
+    - .env

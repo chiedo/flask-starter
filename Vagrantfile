@@ -24,7 +24,9 @@ sudo gem -y install sass
 sudo update-rc.d mysql defaults
 cd /vagrant
 sudo pip install -r requirements.txt 
+sudo npm install gulp -g
 npm install
+sudo apt-get update && apt-get install -y libxml2-dev libxslt1-dev libxslt-dev python-dev
 
 # sets up mysql server
 if [ ! -f /var/log/databasesetup ];
@@ -52,7 +54,7 @@ then
   echo 'export FLASK_CSRF_SESSION_KEY="NONE"' | sudo tee -a /home/vagrant/.bashrc
   #MYSQL
   echo 'export MYSQL_DATABASE="app_development"' | sudo tee -a /home/vagrant/.bashrc
-  echo 'export MYSQL_USERNAME="root"' | sudo tee -a /home/vagrant/.bashrc
+  echo 'export MYSQL_USER="root"' | sudo tee -a /home/vagrant/.bashrc
   echo 'export MYSQL_PASSWORD="root"' | sudo tee -a /home/vagrant/.bashrc
   echo 'export MYSQL_HOSTNAME="127.0.0.1"' | sudo tee -a /home/vagrant/.bashrc
   echo 'export MYSQL_PORT=3306' | sudo tee -a /home/vagrant/.bashrc
