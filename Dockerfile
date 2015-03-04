@@ -16,9 +16,11 @@ WORKDIR /code
 ADD requirements.txt /code/
 
 RUN pip install -r requirements.txt
-ADD . /code/
 
 #Install needed packages
 RUN cd /code/
 RUN npm install gulp -g
 RUN npm install
+
+ADD . /code/
+
