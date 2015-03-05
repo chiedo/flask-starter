@@ -4,8 +4,6 @@ flask-starter
 
 A framework for a new flask project utilizing vagrant or docker for setting up the development environment and gulp as the task runner. 
 
-Notes: Docker is much faster and much more forgiving to changes although it has a slight learning curve. Do not have your vagrant vm and boot2docker running at the same time to prevent annoying issues. Vagrant at this point is a second case citizen though and may not be maintained.
-
 Platform specific notes
 ====================
 Docker Notes
