@@ -1,26 +1,23 @@
 FROM python:2.7
 
-# Install Ruby For sass to use
-RUN apt-get update && apt-get install -y ruby-dev ruby
-
-# Install Node and npm
-RUN apt-get update && apt-get -y install nodejs nodejs-legacy npm
-
-# Install SASS
-RUN gem install sass
+RUN apt-get update -qq && apt-get install -y \
+  ruby-dev \
+  ruby \
+  nodejs \
+  nodejs-legacy \
+  npm
 
 # Set up the App
 ENV PYTHONUNBUFFERED 1
 RUN mkdir /code
 WORKDIR /code
 ADD requirements.txt /code/
+ADD package.json /code/
 
 RUN pip install -r requirements.txt
 
 #Install needed packages
-RUN cd /code/
-RUN npm install gulp -g
-RUN npm install
-
-ADD . /code/
-
+RUN gem install sass && \
+  cd /code/ && \
+  npm install gulp -g && \
+  npm install
