@@ -2,7 +2,7 @@ flask-starter
 =========
 <img src="https://travis-ci.org/chiedojohn/flask-starter.svg?branch=master" />
 
-A framework for a new flask project utilizing vagrant or docker for setting up the development environment and gulp as the task runner. 
+A framework for a new flask project utilizing vagrant or docker 1.5.0 for setting up the development environment and gulp as the task runner. 
 
 Platform specific notes
 ====================
