@@ -18,6 +18,5 @@ RUN pip install -r requirements.txt
 
 #Install needed packages
 RUN gem install sass && \
-  cd /code/ && \
   npm install gulp -g && \
   npm install
