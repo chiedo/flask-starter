@@ -19,10 +19,8 @@ FLASK_CSRF_SESSION_KEY=NONE
 
 #MYSQL
 MYSQL_DATABASE=app_development
-MYSQL_USER=root
-MYSQL_PASSWORD=root
-# This needs to be set if you are using root as the username
-MYSQL_ROOT_PASSWORD=root
+MYSQL_USER=admin
+MYSQL_PASS=admin
 # This is using the docker link
 MYSQL_HOSTNAME=db
 MYSQL_PORT=3306

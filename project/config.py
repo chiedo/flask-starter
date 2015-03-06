@@ -16,7 +16,7 @@ class BaseConfiguration(object):
     try:
         SQLALCHEMY_DATABASE_URI = "mysql://%s:%s@%s/%s" % (
             os.environ["MYSQL_USER"],
-            os.environ["MYSQL_PASSWORD"],
+            os.environ["MYSQL_PASS"],
             os.environ["MYSQL_HOSTNAME"],
             os.environ["MYSQL_DATABASE"]
         )
