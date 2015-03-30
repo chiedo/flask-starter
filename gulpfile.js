@@ -44,12 +44,5 @@ gulp.task('watch', function() {
   gulp.watch(paths.scripts, ['scripts']);
 });
 
-gulp.task('tests', function() {
-  gulp.watch(['*.py','**/*.py'], shell.task([
-    'nosetests --rednose --force-color --nocapture'
-    //'nosetests --rednose --force-color --nocapture --with-coverage --cover-package=app.tests --cover-tests'
-  ], { ignoreErrors: true }));
-});
-
-gulp.task('default', ['watch', 'scripts', 'images','tests','sass']);
+gulp.task('default', ['watch', 'scripts', 'images','sass']);
 

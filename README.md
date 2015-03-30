@@ -33,10 +33,11 @@ First read: https://gist.github.com/chiedojohn/c3e37041b829f28c0c78
 
 Local Development Environment
 =============
-- To the automatic reloaded for runing tests, compiling static assets, and more open up a new tab with the vagrant VM and run the following:
+- To set up automatic compiling static assets, and more open up a new tab on your local machine and run the following:
 ```
 gulp
 ```
+- You may need to first set run npm install and run npm install -g gulp on your local machine.
 - To handle migrations, we are using Flask-Migrate.
 
 Running Your Application
