@@ -5,7 +5,9 @@ var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var del = require('del');
 var sass = require('gulp-sass');
-minifyCSS = require('gulp-minify-css');
+var minifyCSS = require('gulp-minify-css');
+var browserify = require('gulp-browserify');
+var concat = require('gulp-concat');
 
 var paths = {
   scripts: ['project/static/js/dev/global.js','project/static/js/dev/**/*.js'],
@@ -25,6 +27,14 @@ gulp.task('clean', function(cb) {
   del(['build'], cb);
 });
 
+gulp.task('browserify', function() {
+  gulp.src('project/react/main.js')
+  .pipe(browserify({transform: 'reactify'}))
+  .pipe(concat('react-bundle.js'))
+  //.pipe(uglify())
+  .pipe(gulp.dest('project/static/js/build'));
+});
+
 gulp.task('scripts', ['clean'], function() {
   // Minify and copy all JavaScript (except vendor scripts)
   return gulp.src(paths.scripts)
@@ -42,7 +52,7 @@ gulp.task('images', ['clean'], function() {
 gulp.task('watch', function() {
   gulp.watch(paths.css, ['sass']);
   gulp.watch(paths.scripts, ['scripts']);
+  gulp.watch(['project/react/**/*.js'], ['browserify']);
 });
 
-gulp.task('default', ['watch', 'scripts', 'images','sass']);
-
+gulp.task('default', ['watch', 'scripts', 'images','sass', 'browserify']);

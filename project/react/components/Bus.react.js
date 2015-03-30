@@ -6,7 +6,7 @@ var Bus = React.createClass({
   render: function() {
     return (
       <div className="bus">
-        Bus without wheels.
+        Bus with no wheels.
       </div>
     );
   }
