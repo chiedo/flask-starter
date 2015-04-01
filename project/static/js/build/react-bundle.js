@@ -19721,7 +19721,6 @@ module.exports = warning;
 module.exports = require('./lib/React');
 
 },{"./lib/React":29}],157:[function(require,module,exports){
-/** @jsx React.DOM */
 var React = require('react');
 
 var Bus = React.createClass({displayName: "Bus",
@@ -19740,8 +19739,7 @@ module.exports = Bus;
 
 
 },{"react":156}],158:[function(require,module,exports){
-/** @jsx React.DOM */
-var Wheel = require('./Wheel.react');
+var Wheel = require('./Wheel.react.jsx');
 var React = require('react');
 
 var Car = React.createClass({displayName: "Car",
@@ -19773,8 +19771,7 @@ var Car = React.createClass({displayName: "Car",
 module.exports = Car;
 
 
-},{"./Wheel.react":159,"react":156}],159:[function(require,module,exports){
-/** @jsx React.DOM */
+},{"./Wheel.react.jsx":159,"react":156}],159:[function(require,module,exports){
 var React = require('react');
 
 var Wheel = React.createClass({displayName: "Wheel",
@@ -19793,13 +19790,12 @@ module.exports = Wheel;
 
 
 },{"react":156}],160:[function(require,module,exports){
-/** @jsx React.DOM */
 var React = require('react');
 
 // For each component that you want to be accessible to your views, you need to do the following. This just allows more components to be used on a page by page basis. I wrapped each React.Render call in a conditional to make sure the element with the needed ID exists first before attempting to render the element to render the element.
 
 // Example 1
-var Car = require('./components/Car.react');
+var Car = require('./components/Car.react.jsx');
 if(document.getElementById('react-car') !== null) {
   React.render(
     React.createElement(Car, null),
@@ -19808,7 +19804,7 @@ if(document.getElementById('react-car') !== null) {
 }
 
 // Example 2
-var Bus = require('./components/Bus.react');
+var Bus = require('./components/Bus.react.jsx');
 if(document.getElementById('react-bus') !== null) {
   React.render(
     React.createElement(Bus, null),
@@ -19817,4 +19813,4 @@ if(document.getElementById('react-bus') !== null) {
 }
 
 
-},{"./components/Bus.react":157,"./components/Car.react":158,"react":156}]},{},[160])
+},{"./components/Bus.react.jsx":157,"./components/Car.react.jsx":158,"react":156}]},{},[160])
