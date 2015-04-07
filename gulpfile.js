@@ -28,7 +28,7 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('browserify', function() {
-  gulp.src('project/react/main.jsx')
+  gulp.src('react/main.react.jsx')
   .pipe(browserify({transform: 'reactify'}))
   .pipe(concat('react-bundle.js'))
   //.pipe(uglify())
@@ -52,7 +52,7 @@ gulp.task('images', ['clean'], function() {
 gulp.task('watch', function() {
   gulp.watch(paths.css, ['sass']);
   gulp.watch(paths.scripts, ['scripts']);
-  gulp.watch(['project/react/**/*.*'], ['browserify']);
+  gulp.watch(['react/**/*.*'], ['browserify']);
 });
 
 gulp.task('default', ['watch', 'scripts', 'images','sass', 'browserify']);

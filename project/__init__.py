@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, make_response
 import os
 from flask.ext.sqlalchemy import SQLAlchemy
 
@@ -7,6 +7,14 @@ app = Flask(__name__)
 
 # Configurations
 app.config.from_object('project.config.BaseConfiguration')
+
+
+# Catch all route for Reactjs
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    response = make_response(render_template("index.html", page='index'))
+    return response
 
 # Define the database object which is imported
 # by modules and views
