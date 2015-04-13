@@ -6,7 +6,25 @@ A framework for a new flask project utilizing vagrant or docker 1.5.0 for settin
 
 Platform specific notes
 ====================
-Docker Notes
+Local Option
+--------------------
+- Make sure you have an environment variable set up on your host machine which sets FLASK_ENV to development.
+- Create an .env file with the following contents (Update the port, username and password in accordance with your local database setup)
+
+```
+#FLASK
+FLASK_SECRET_KEY=NONE
+FLASK_CSRF_SESSION_KEY=NONE
+#MYSQL
+MYSQL_DATABASE=flask_starter_development
+MYSQL_USER=root
+MYSQL_PASS=root
+MYSQL_HOSTNAME=127.0.0.1
+MYSQL_PORT=8889
+```
+- Set up virtualenv and do all python related tasks within your virtualenv.
+
+Docker Option
 ---------
 First read: https://gist.github.com/chiedojohn/e7ece910ef4a7e3ce125
 
@@ -26,7 +44,7 @@ MYSQL_HOSTNAME=db
 MYSQL_PORT=3306
 ```
 
-Vagrant Notes
+Vagrant Option
 ---------
 First read: https://gist.github.com/chiedojohn/c3e37041b829f28c0c78
 

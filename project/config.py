@@ -8,16 +8,21 @@ try:
 except KeyError:
     environment = "development"
 
+if(environment == "development"):
+    import dotenv
+    dotenv.load_dotenv(BASE_DIR + "/../.env")
+
 
 class BaseConfiguration(object):
     """This is the base configuration for the app. Any of these configurations may be
     overridden by configurations that extend it"""
 
     try:
-        SQLALCHEMY_DATABASE_URI = "mysql://%s:%s@%s/%s" % (
+        SQLALCHEMY_DATABASE_URI = "mysql://%s:%s@%s:%s/%s" % (
             os.environ["MYSQL_USER"],
             os.environ["MYSQL_PASS"],
             os.environ["MYSQL_HOSTNAME"],
+            os.environ["MYSQL_PORT"],
             os.environ["MYSQL_DATABASE"]
         )
     except KeyError:
