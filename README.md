@@ -1,5 +1,7 @@
 flask-starter
 =========
+Not actively maintained anymore. Will still use but will require updates, etc.
+
 <img src="https://travis-ci.org/chiedojohn/flask-starter.svg?branch=master" />
 
 A framework for a new flask project utilizing vagrant or docker 1.5.0 for setting up the development environment and gulp as the task runner. 
